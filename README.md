@@ -1,1 +1,1 @@
-<a href="https://rkozlov-laravel-blog.herokuapp.com/">Demo Rkozlov Blog</a>
+Demo: <a href="https://rkozlov-laravel-blog.herokuapp.com/">rkozlov-laravel-blog</a>
