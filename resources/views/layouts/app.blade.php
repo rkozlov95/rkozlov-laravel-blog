@@ -11,7 +11,7 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <nav class="navbar navbar-expand navbar-dark bg-primary">
                 <a class="navbar-brand" href="/">Rkozlov-laravel-blog</a>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
