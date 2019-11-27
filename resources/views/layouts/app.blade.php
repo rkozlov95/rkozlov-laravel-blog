@@ -16,7 +16,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/articles">Articles</span></a>
+                            <a class="nav-link" href="{{ action('ArticleController@index') }}">Articles</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
