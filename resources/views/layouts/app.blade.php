@@ -10,6 +10,21 @@
         <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="/">Rkozlov-laravel-blog</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/articles">Articles</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <div class="container mt-4">
             <h1>@yield('header')</h1>
             <div>
