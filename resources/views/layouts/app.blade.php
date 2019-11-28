@@ -6,7 +6,7 @@
         <title>Rkozlov Blog - @yield('title')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="csrf-param" content="_token" />
-        <link href="css/app.css" rel="stylesheet">
+        <link href="/css/app.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -33,6 +33,6 @@
                 @yield('content')
             </div>
         </div>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('/js/app.js') }}"></script>
     </body>
 </html>
