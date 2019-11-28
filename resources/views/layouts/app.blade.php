@@ -7,16 +7,18 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="csrf-param" content="_token" />
         <link href="css/app.css" rel="stylesheet">
-        <script src="js/app.js"></script>
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <a class="navbar-brand" href="/">Rkozlov-laravel-blog</a>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarMd">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="collapsingNavbarMd">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ action('ArticleController@index') }}">Articles</span></a>
+                            <a class="nav-link" href="{{ action('ArticleController@index') }}">Articles</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
@@ -31,5 +33,6 @@
                 @yield('content')
             </div>
         </div>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
