@@ -8,13 +8,12 @@ use App\Article;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::paginate(6);
-
-        // Статьи передаются в шаблон
-        // compact('articles') => [ 'articles' => $articles ]
-        return view('article.index', compact('articles'));
+        $field = $request->input('field');
+        $articles = Article::where('name', 'like', "%{$field}%")
+            ->orWhere('body','like',"%{$field}%")->paginate(6);
+        return view('article.index', compact('articles', 'field'));
     }
 
     public function show($id)
@@ -49,5 +48,4 @@ class ArticleController extends Controller
         return redirect()
             ->route('articles.index')->withSuccess('Article successfully added');
     }
-
 }
