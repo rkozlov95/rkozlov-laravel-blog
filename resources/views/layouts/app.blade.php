@@ -21,7 +21,10 @@
                             <a class="nav-link" href="{{ action('ArticleController@index') }}">Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
+                            <a class="nav-link" href="{{ action('ArticleController@create') }}">Create Article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action('PageController@about') }}">About</a>
                         </li>
                     </ul>
                 </div>
