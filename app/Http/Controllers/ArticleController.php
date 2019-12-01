@@ -47,7 +47,7 @@ class ArticleController extends Controller
 
         // Редирект на указанный маршрут с добавлением флеш сообщения
         return redirect()
-            ->route('articles.index');
+            ->route('articles.index')->withSuccess('Article successfully added');
     }
 
 }

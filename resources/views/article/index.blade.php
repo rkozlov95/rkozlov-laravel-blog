@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
     <h1>List of Articles</h1>
     @foreach($articles as $article)
 		<div class="shadow p-3 mb-3 bg-ligth rounded">
