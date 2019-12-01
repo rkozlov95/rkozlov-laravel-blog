@@ -16,7 +16,7 @@
             </div>
         </div>
         @if ($articles->isEmpty())
-            <span class="text-danger">No articles found</span>
+            <span class="text-danger">No matches found</span>
         @endif
     {{ Form::close() }}
     @if ($articles->isNotEmpty()) 

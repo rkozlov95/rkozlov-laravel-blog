@@ -12,7 +12,7 @@ class ArticleController extends Controller
     {
         $field = $request->input('field');
         $articles = Article::where('name', 'like', "%{$field}%")
-            ->orWhere('body','like',"%{$field}%")->paginate(6);
+            ->orWhere('body','like',"%{$field}%")->orderBy('created_at', 'desc')->paginate(6);
         return view('article.index', compact('articles', 'field'));
     }
 
@@ -35,7 +35,7 @@ class ArticleController extends Controller
         // Если будут ошибки, то возникнет исключение
         $this->validate($request, [
             'name' => 'required|unique:articles',
-            'body' => 'required|min:1000',
+            'body' => 'required|min:500',
         ]);
 
         $article = new Article();
