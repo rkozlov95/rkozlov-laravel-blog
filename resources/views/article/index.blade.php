@@ -3,11 +3,18 @@
 @section('title', 'Articles')
 
 @section('content')
-    @if(Session::has('success'))
+    @if (Session::has('success'))
         <div class="alert alert-success">
             {{Session::get('success')}}
         </div>
     @endif
+
+    @if (Session::has('update'))
+        <div class="alert alert-success">
+            {{Session::get('update')}}
+        </div>
+    @endif
+    
     {{ Form::open(['url' => route('articles.index'), 'method' => 'GET']) }}
         <div class="input-group mb-3">
             {{ Form::text('field', $field, ['class' => 'form-control', 'placeholder' => 'Search']) }}
@@ -21,12 +28,17 @@
     {{ Form::close() }}
     @if ($articles->isNotEmpty()) 
     <h1>List of Articles</h1>
-    @foreach($articles as $article)
-		<div class="shadow p-3 mb-3 bg-ligth rounded">
-        	<a href="/articles/{{$article->id}}" class="text-decoration-none"><h3>{{$article->name}}</h3></a>
-        	{{-- Str::limit – функция-хелпер, которая обрезает текст до указанной длины --}}
-        	{{-- Используется для очень длинных текстов, которые нужно сократить --}}
-        	<p>{{Str::limit($article->body, 200)}}</p>
+    @foreach($articles as $article)    
+        <div class="card shadow mb-3">
+        <div class="card-header">
+            <a href="/articles/{{$article->id}}" class="text-decoration-none">
+                {{$article->name}}
+            </a>
+        </div>
+            <div class="card-body">
+                <p class="card-text">{{Str::limit($article->body, 300)}}</p>
+                <h6><a class="card-link float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
+            </div>
         </div>
     @endforeach
     @endif
