@@ -17,13 +17,13 @@
                 </button>
                 <div class="navbar-collapse collapse" id="collapsingNavbarMd">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        <li class="nav-item {{ active('articles.index') }}">
                             <a class="nav-link" href="{{ action('ArticleController@index') }}">Articles</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ active('articles.create') }}">
                             <a class="nav-link" href="{{ action('ArticleController@create') }}">Create Article</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ active('page.about') }}">
                             <a class="nav-link" href="{{ action('PageController@about') }}">About</a>
                         </li>
                     </ul>

@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', 'PageController@about');
+Route::get('/about', 'PageController@about')
+  ->name('page.about');
 
 // Название сущности в URL во множественном числе, контроллер в единственном
 Route::get('/articles', 'ArticleController@index')

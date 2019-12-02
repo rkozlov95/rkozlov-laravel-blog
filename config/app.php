@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Watson\Active\ActiveServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -191,6 +192,7 @@ return [
 
     'aliases' => [
 
+        'Active' => Watson\Active\Facades\Active::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
