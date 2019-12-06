@@ -33,9 +33,11 @@
                         <li class="nav-item {{ active('articles.index') }}">
                             <a class="nav-link" href="{{ action('ArticleController@index') }}">Articles</a>
                         </li>
-                        <li class="nav-item {{ active('articles.create') }}">
-                            <a class="nav-link" href="{{ action('ArticleController@create') }}">Create Article</a>
-                        </li>
+                        @can('create', App\Article::class)
+                            <li class="nav-item {{ active('articles.create') }}">
+                                <a class="nav-link" href="{{ action('ArticleController@create') }}">Create Article</a>
+                            </li>
+                        @endcan
                         <li class="nav-item {{ active('page.about') }}">
                             <a class="nav-link" href="{{ action('PageController@about') }}">About</a>
                         </li>

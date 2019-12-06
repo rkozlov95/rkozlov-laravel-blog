@@ -8,6 +8,7 @@ use App\Article;
 
 use App\Http\Requests\CreateUpdateArticle;
 
+
 class ArticleController extends Controller
 {
     public function index(Request $request)
@@ -35,8 +36,9 @@ class ArticleController extends Controller
     {
         // Проверка введенных данных
         // Если будут ошибки, то возникнет исключение
+        $this->authorize('create', Article::class);
         $this->validate($request, ['name' => 'required|unique:articles']);
-
+        
         $article = new Article();
         // Заполнение статьи данными из формы
         $article->fill($request->all());
@@ -56,12 +58,14 @@ class ArticleController extends Controller
 
     public function update(CreateUpdateArticle $request, $id)
     {
+        $this->authorize('update', Article::class);
         $article = Article::findOrFail($id);
         $this->validate($request, [
             'name' => 'required|unique:articles,name,' . $article->id,
         ]);
 
         $article->fill($request->all());
+
         $article->save();
         return redirect()->route('articles.index')
             ->with('update', 'Article updated successfully');

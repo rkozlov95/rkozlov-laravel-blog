@@ -36,8 +36,10 @@
             </a>
         </div>
             <div class="card-body">
-                <p class="card-text">{{Str::limit($article->body, 300)}}</p>
-                <h6><a class="card-link float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
+                <p class="card-text">{{Str::limit($article->body, 200)}}</p>
+                @can('update', App\Article::class)
+                    <h6><a class="card-link float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
+                @endcan
             </div>
         </div>
     @endforeach
