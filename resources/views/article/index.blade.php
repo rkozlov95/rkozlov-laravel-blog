@@ -15,6 +15,13 @@
         </div>
     @endif
     
+    @if (Session::has('delete'))
+        <div class="alert alert-danger">
+            {{Session::get('delete')}}
+        </div>
+    @endif
+
+
     {{ Form::open(['url' => route('articles.index'), 'method' => 'GET']) }}
         <div class="input-group mb-3">
             {{ Form::text('field', $field, ['class' => 'form-control', 'placeholder' => 'Search']) }}
@@ -37,8 +44,34 @@
         </div>
             <div class="card-body">
                 <p class="card-text">{{Str::limit($article->body, 200)}}</p>
+                @can ('delete', App\Article::class)
+                    <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete article</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete the article?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <a type="button" class="btn btn-primary" href="{{ route('articles.destroy', $article->id) }}" data-method="delete" rel="nofollow">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endcan
                 @can('update', App\Article::class)
-                    <h6><a class="card-link float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
+                    <h6><a class="btn btn-primary float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
                 @endcan
             </div>
         </div>

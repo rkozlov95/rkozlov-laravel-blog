@@ -67,7 +67,7 @@ class PostPolicy
      * @param  \App\Article  $article
      * @return mixed
      */
-    public function delete(User $user, Article $article)
+    public function delete(User $user)
     {
         return in_array($user->email, [
             'rkozlov95@mail.ru',
