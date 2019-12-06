@@ -42,7 +42,7 @@ class PostPolicy
     public function create(User $user)
     {
         return in_array($user->email, [
-            'rkozlov95@mail.ru',
+            'admin@admin.ru',
         ]);
     }
 
@@ -56,7 +56,7 @@ class PostPolicy
     public function update(User $user)
     {
         return in_array($user->email, [
-            'rkozlov95@mail.ru',
+            'admin@admin.ru',
         ]);
     }
 
@@ -70,7 +70,7 @@ class PostPolicy
     public function delete(User $user)
     {
         return in_array($user->email, [
-            'rkozlov95@mail.ru',
+            'admin@admin.ru',
         ]);
     }
 
