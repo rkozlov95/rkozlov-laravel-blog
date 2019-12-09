@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function articles()
+    {
+        // У каждого пользователя много постов
+        // hasMany определяется у модели имеющей внешние ключи в других таблицах
+        return $this->hasMany('App\Article', 'creator_id');
+    }
 }

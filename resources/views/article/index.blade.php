@@ -38,12 +38,12 @@
     @foreach($articles as $article)    
         <div class="card shadow mb-3">
         <div class="card-header">
-            <a href="/articles/{{$article->id}}" class="text-decoration-none">
+            <a href="{{ route('articles.show', $article->id) }}" class="text-decoration-none">
                 {{$article->name}}
             </a>
         </div>
             <div class="card-body">
-                <p class="card-text">{{Str::limit($article->body, 200)}}</p>
+                <p class="card-text">{{ Str::limit($article->body, 200) }}</p>
                 @can ('delete', App\Article::class)
                     <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#exampleModal">
                         Delete
@@ -73,6 +73,9 @@
                 @can('update', App\Article::class)
                     <h6><a class="btn btn-primary float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
                 @endcan
+            </div>
+            <div class="card-footer text-muted">
+                Created: {{ $article->created_at->toDateString() }}, User: {{ $article->creator->name}}
             </div>
         </div>
     @endforeach

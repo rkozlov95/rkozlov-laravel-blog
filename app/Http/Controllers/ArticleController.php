@@ -36,10 +36,11 @@ class ArticleController extends Controller
     {
         // Проверка введенных данных
         // Если будут ошибки, то возникнет исключение
+        $user = $request->user();
         $this->authorize('create', Article::class);
         $this->validate($request, ['name' => 'required|unique:articles']);
         
-        $article = new Article();
+        $article = $user->articles()->make();
         // Заполнение статьи данными из формы
         $article->fill($request->all());
         // При ошибках сохранения возникнет исключение

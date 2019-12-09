@@ -43,6 +43,7 @@ class PostPolicy
     {
         return in_array($user->email, [
             'admin@admin.ru',
+            'rkozlov95@mail.ru',
         ]);
     }
 
