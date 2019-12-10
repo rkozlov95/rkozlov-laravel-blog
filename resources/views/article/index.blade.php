@@ -26,7 +26,7 @@
         <div class="input-group mb-3">
             {{ Form::text('field', $field, ['class' => 'form-control', 'placeholder' => 'Search']) }}
             <div class="input-group-append">
-            {{ Form::submit('Search', ['class' => 'btn btn-primary']) }}
+            {{ Form::submit('Search', ['class' => 'btn btn-outline-secondary']) }}
             </div>
         </div>
         @if ($articles->isEmpty())
@@ -43,9 +43,9 @@
             </a>
         </div>
             <div class="card-body">
-                <p class="card-text">{{ Str::limit($article->body, 200) }}</p>
+                <p class="card-text text-primary">{!! Str::limit($article->getBody(), 100) !!}</p>
                 @can ('delete', App\Article::class)
-                    <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-outline-secondary float-left" data-toggle="modal" data-target="#exampleModal">
                         Delete
                     </button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,8 +61,8 @@
                                     Are you sure you want to delete the article "{{$article->name}}"?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a type="button" class="btn btn-primary" href="{{ route('articles.destroy', $article->id) }}" data-method="delete" rel="nofollow">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                    <a type="button" class="btn btn-outline-secondary" href="{{ route('articles.destroy', $article->id) }}" data-method="delete" rel="nofollow">
                                         Delete
                                     </a>
                                 </div>
@@ -71,11 +71,11 @@
                     </div>
                 @endcan
                 @can('update', App\Article::class)
-                    <h6><a class="btn btn-primary float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
+                    <h6><a class="btn btn-outline-secondary float-right" href="{{ route('articles.edit', $article->id) }}">Edit</a></h6>
                 @endcan
             </div>
             <div class="card-footer text-muted">
-                Created: {{ $article->created_at->toDateString() }}, User: {{ $article->creator->name}}
+                Posted by: {{ $article->creator->name}}, {{ $article->created_at->toDateString() }}
             </div>
         </div>
     @endforeach

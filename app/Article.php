@@ -13,5 +13,8 @@ class Article extends Model
         // belongsTo определяется у модели содержащей внешний ключ
         return $this->belongsTo('App\User');
     }
+    public function getBody() {
+        return $this->body;
+    }
 
 }

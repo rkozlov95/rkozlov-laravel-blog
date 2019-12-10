@@ -28,7 +28,9 @@
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
     "@ckeditor/ckeditor5-media-embed": "^16.0.0",
     "bootstrap": "^4.4.0",
+    "bootswatch": "^4.4.1",
     "jquery-ujs": "^1.2.2",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "tinymce": "^5.1.3"
   }
 }

@@ -12,3 +12,17 @@
         <span class="text-danger">{{ $errors->first('body') }}</span>
     @endif
 </div>
+
+<script src="{{ asset('ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor5-build-classic/build/translations/ru.js') }}"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', '|', 'undo', 'redo', ],
+            language: 'ru',
+        } )
+        .catch( error => {
+            console.log( error );
+        } );
+</script>
