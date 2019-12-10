@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    Hello! Мy name is Roman Kozlov. I’m a web developer living in Petrozavodsk, Republic of Karelia, Russian Federation.  
+    <img src="/images/LaravelLogo.png" class="w-50 mx-auto d-block mt-5" alt="Responsive image">
 @endsection

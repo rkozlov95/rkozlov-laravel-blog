@@ -80,7 +80,7 @@
 
 
     <div class="container mt-4">
-        <h1>@yield('header')</h1>
+        <h1 class="text-center">@yield('header')</h1>
         <div>
             @yield('content')
         </div>
